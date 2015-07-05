@@ -2,50 +2,22 @@
 <html lang="en-US">
 <script
 	src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
-<script>
-	var app = angular.module('myApp', []);
-	app.controller('myCtrl', function($scope) {
-		$scope.firstName = "John";
-		$scope.lastName = "Doe";
-	});
-</script>
+<script src="namesController.js"></script>
 <body>
-
-	<div ng-app=""
-		ng-init="quantity=1;price=5;names=[
-{name:'Jani',country:'Norway'},
-{name:'Hege',country:'Sweden'},
-{name:'Kai',country:'Denmark'}]">
-
-		Quantity: <input type="number" ng-model="quantity"> Costs: <input
-			type="number" ng-model="price"> Total in dollar: {{ quantity
-		* price }}
-
-		<ul>
-			<li ng-repeat="x in names">{{ x.name + ', ' + x.country }}</li>
-		</ul>
-
-	</div>
-
-	<!-- <div ng-app="" ng-init="firstName='John'">
-		<p>
-			The name is <span ng-bind="firstName"></span>
-		</p>
-		<p>
-			Name : <input type="text" ng-model="name">
-		</p>
-		<p>
-			Age : <input type="text" ng-model="age">
-		</p>
-
-		<h1>Hello {{name}} & My Age: {{ age }}</h1>
-	</div> -->
-	<!-- <div ng-app="myApp" ng-controller="myCtrl">
-
+	<!-- <div ng-app="myApp" ng-controller="personCtrl">
 		First Name: <input type="text" ng-model="firstName"><br>
-		Last Name: <input type="text" ng-model="lastName"><br> <br>
-		Full Name: {{firstName + " " + lastName}}
-
-	</div> -->
+		Last Name: <input type="text" ng-model="lastName"><br> <br> 
+		Full Name: {{fullName() | uppercase}}
+	</div>
+	 -->
+	<div ng-app="myApp" ng-controller="namesCtrl">
+		<p>
+			<input type="text" ng-model="test">
+		</p>
+		<ul>
+			<li ng-repeat="x in names | filter:test | orderBy:'country'">{{
+				(x.name | uppercase) + ', ' + x.country }}</li>
+		</ul>
+	</div>
 </body>
 </html>
