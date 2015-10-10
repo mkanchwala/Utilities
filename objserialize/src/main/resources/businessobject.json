@@ -1,0 +1,16 @@
+{
+    "businessobjects": [
+        {
+        	"id":1,
+        	"objType": "person",
+            "name": "ABC",
+            "gender": "M"
+        },
+        {
+        	"id":2,
+            "objType": "address",
+            "address1": "H",
+            "address2": "Apt"
+        }
+    ]
+}
